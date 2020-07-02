@@ -1,7 +1,8 @@
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, session
 
 app = Flask(__name__)
 
+app.secret_key = b'kevinelong'
 
 @app.route('/')
 def index():
@@ -57,6 +58,30 @@ def secure_me():
     all = f.read()
     return all
 
+
+@app.route('/login/')
+def login():
+    return '''
+<form method="POST" action="/authenticate">
+    <input name="username">
+    <input name="password" type="password">
+    <input type="submit">
+</form>
+'''
+
+@app.route('/authenticate', methods=['POST'])
+def authenticate():
+    username = request.form['username']
+    session["username"] = username
+    return redirect('/content/')
+
+@app.route('/content/')
+def content():
+    username = session["username"]
+    return f'''
+CONTENT<BR>
+{username}
+'''
 
 if __name__ == '__main__':
     app.run()
