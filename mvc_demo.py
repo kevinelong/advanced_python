@@ -66,12 +66,13 @@ app.models["user"].objects = [
     {"name": "Ted", "score": "15"},
     {"name": "Alice", "score": "13"}
 ]
+
 app.models["game"].objects = [
     {"game_name": "Asteroids", "description": "so many rocks."},
 ]
 
 app.controller.routes = {
-    "/scores/": View("\nHello <em>{{naame}}</em>, your score is <strong>{{score}}</strong>.<br>\n", app.models["user"]),
+    "/scores/": View("\nHello <em>{{name}}</em>, your score is: <strong>{{score}}</strong>.<br>\n", app.models["user"]),
     "/game/": View("\nGame: {{game_name}} Desc:{{description}}\n", app.models["game"])
 }
 

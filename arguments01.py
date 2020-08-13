@@ -1,15 +1,17 @@
 import sys
 
+print(sys.argv)
+print(len(sys.argv))
+
 if len(sys.argv) < 3:
-    print("USAGE: mycommand number file_path")
+    print("USAGE: script input_file_path ouput_file_path")
+    exit(-1)
 
 else:
-    print(sys.argv)
-
     for a in sys.argv:
         print(a)
 
-    number = sys.argv[1]
-    file = sys.argv[2]
+    input_file_path = sys.argv[1]
+    output_file_path = sys.argv[2]
 
-    print(f"{number} times will be output to: {file}")
+    print(f"Loading {input_file_path}. Emitting to {output_file_path}")

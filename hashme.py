@@ -28,3 +28,6 @@ def is_password_good(text, stored_hash):
 fresh_password = "password"
 print(is_password_good(fresh_password, stored_hash))
 
+m = hashlib.md5()
+m.update("password")
+print(m.digest())

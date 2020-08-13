@@ -11,18 +11,24 @@ def first_n(n):
         num += 1
 
 
-n = 1000000
+n = 5
 i = first_n(n)
 
-print(i.__next__())
-print(i.__next__())
-print(i.__next__())
-print(i.__next__())
-print(i.__next__())
-print(i.__next__())
+# for x in i:
+#     print(x)
 
-print(sum(first_n(n)))
-print(list(first_n(n)))
+# print(i.__next__())
+# print(i.__next__())
+# print(i.__next__())
+# print(i.__next__())
+# print(i.__next__())
+# print(i.__next__())
 
+print(i)
+
+# print(sum(i))
+
+# print(list(first_n(99)))
+n = 999
 print(sys.getsizeof(first_n(n)))
 print(sys.getsizeof(list(first_n(n))))

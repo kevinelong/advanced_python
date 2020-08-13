@@ -54,10 +54,12 @@ def thanks():
 
 @app.route('/secure_me/')
 def secure_me():
-    f = open("mailing_list.txt", "r")
-    all = f.read()
-    return all
-
+    if "username" in dict(session["username"]):
+        f = open("mailing_list.txt", "r")
+        all = f.read()
+        return all
+    else:
+        return "405"
 
 @app.route('/login/')
 def login():
