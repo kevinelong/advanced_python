@@ -14,8 +14,11 @@ def first_n(n):
 n = 5
 i = first_n(n)
 
-# for x in i:
-#     print(x)
+for x in i:
+    print(x)
+
+for x in first_n(n):
+    print(x)
 
 # print(i.__next__())
 # print(i.__next__())

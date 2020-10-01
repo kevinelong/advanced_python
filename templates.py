@@ -12,7 +12,7 @@ basket = [
     {"item": "Scissors", "price": 33, "qty": 3},
 ]
 
-template = Template("$qty, $item, $price")
+template = Template("$qty x $item = $price")
 total = 0
 
 for item in basket:

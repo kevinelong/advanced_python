@@ -4,7 +4,8 @@ print(sys.argv)
 print(len(sys.argv))
 
 if len(sys.argv) < 3:
-    print("USAGE: script input_file_path ouput_file_path")
+    print("USAGE: script input_file_path "
+          "")
     exit(-1)
 
 else:
