@@ -3,7 +3,7 @@
 # MODEL: A LIST OF OBJECTS. TYPICALLY FROM A DATABASE
 
 
-class Model(object):
+class Model:
     def __init__(self, name, fields):
         self.name = name
         self.fields = fields
@@ -14,7 +14,7 @@ class Model(object):
 
 
 # VIEW: A TEMPLATE FOR A PAGE OR PAGE FRAGMENT
-class View(object):
+class View:
     def __init__(self, template, model):
         self.template = template
         self.model = model
@@ -31,7 +31,7 @@ class View(object):
 
 
 # CONTROLLER: Routes messages
-class Controller(object):
+class Controller:
     def __init__(self):
         self.routes = {}
 
@@ -78,14 +78,14 @@ app.controller.routes = {
 
 request_path = "/scores/"
 write_me = app.controller.route(request_path)
-# print(write_me)
+print(write_me)
 output_file = open("mvc_output.html", "w")
 output_file.write(write_me)
 output_file.close()
 
 request_path = "/game/"
 write_me = app.controller.route(request_path)
-# print(write_me)
+print(write_me)
 output_file = open("game.html", "w")
 output_file.write(write_me)
 output_file.close()

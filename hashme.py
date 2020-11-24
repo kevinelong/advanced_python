@@ -29,5 +29,5 @@ fresh_password = "password"
 print(is_password_good(fresh_password, stored_hash))
 
 m = hashlib.md5()
-m.update("password")
-print(m.digest())
+m.update("Welcome1!".encode())
+print(m.hexdigest())

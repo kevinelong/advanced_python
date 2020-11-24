@@ -54,7 +54,7 @@ def thanks():
 
 @app.route('/secure_me/')
 def secure_me():
-    if "username" in dict(session["username"]):
+    if "username" in dict(session):
         f = open("mailing_list.txt", "r")
         all = f.read()
         return all

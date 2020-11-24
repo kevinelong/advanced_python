@@ -3,3 +3,5 @@ kevinelong@gmail.com
 bob@example.com
 kevinelong@gmail.com <Request 'http://127.0.0.1:5000/signup' [POST]>
 kevinelong@gmail.com <Request 'http://127.0.0.1:5000/signup' [POST]>
+kevinelong@gmail.com <Request 'http://127.0.0.1:5000/signup' [POST]>
+kevin@cleverclever.com <Request 'http://127.0.0.1:5000/signup' [POST]>

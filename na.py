@@ -141,4 +141,4 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--filename", help="File name for output", default="network-audit.csv")
     args = parser.parse_args()
     # Execute main script
-    main(args.hostfile, args.threads, args.username, args.password, args.device_type, args.commands, args.filename)
+    run_many_commands_on_many_server_to_get_results(args.hostfile, args.threads, args.username, args.password, args.device_type, args.commands, args.filename)
