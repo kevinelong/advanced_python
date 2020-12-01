@@ -56,7 +56,7 @@ display_pets(data)
 
 db.connection.close()
 """
-         DBSQL    HTTP(METHODS/VERBS)
+         DBSQL    HTTP/REST(METHODS/VERBS)
 CREATE - INSERT - PUT
 READ   - SELECT - GET
 UPDATE - UPDATE - POST

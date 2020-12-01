@@ -4,7 +4,7 @@ print("Hello")
 
 print = 123
 
-print(print)
+print("hello")
 
 # old_print = print
 #

@@ -7,6 +7,7 @@ class Employee:
         self.name = name
         self.salary = salary
         self.address = employee_address
+        self.is_manager = False
 
 
 class Address:

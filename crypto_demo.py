@@ -17,14 +17,15 @@ IV = Random.new().read(16)
 salt = "kevinelong@clvrclvr.com"
 
 #ENCRYPT
-key = getKey("secret", salt)
+key = getKey("password", salt)
 chunk = "Hello World!!!!!"
+print(chunk)
 encryptor = AES.new(key, AES.MODE_CBC, IV)
 data = encryptor.encrypt(chunk.encode())
-print(data)
+print(data.hex())
 
 #DECRYPT
-key = getKey("secret", salt)
+key = getKey("password", salt)
 decryptor = AES.new(key, AES.MODE_CBC, IV)
-output = decryptor.decrypt(data)
+output = decryptor.decrypt(data).decode()
 print(output)

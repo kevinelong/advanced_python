@@ -83,6 +83,9 @@ def content():
     return f'''
 CONTENT<BR>
 {username}
+<a href="/secure_me/">
+    Download Mailing List
+</a>
 '''
 
 if __name__ == '__main__':
