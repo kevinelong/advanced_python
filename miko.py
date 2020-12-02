@@ -2,9 +2,10 @@ from netmiko import ConnectHandler
 
 linux = {
     'device_type': 'linux',
-    'host':   '3.80.187.178',
+    'host':   '54.209.151.112',
     'username': 'kevin',
     'password': 'S!mpl312',
+    'zzz':123
 }
 c = ConnectHandler(**linux) # use of kwargs optional, could just use regular parameters
 
@@ -16,7 +17,24 @@ print(r2)
 
 r3 = c.send_command("ls -la")
 print(r3)
+#---
 
+lines = r3.split("\n")
+
+NAME_INDEX = 8
+
+for item in lines:
+    #     parts = item.split(" ") # split on space
+    #     parts = re.split(' +', item) # use regex to split on more than one space
+    parts = item.split() # no parameters does the right thing!
+    print(parts)
+    if len(parts) >= NAME_INDEX:
+        file_name = parts[NAME_INDEX]
+        print(file_name)
+        if file_name == "hw.txt":
+            print("YAY!!!")
+            r4 = c.send_command("rm hw.txt")
+            print(r4)
 #
 # from netmiko import ConnectHandler
 # import paramiko
