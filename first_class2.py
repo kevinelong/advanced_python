@@ -23,6 +23,11 @@ class IpParser6(IpParserBase):
     def __init__(self):
         super().__init__(ip_type="6", separator=":", base=16)
 
+    def parse(self, text: str) -> [int]:
+        # TODO DEAL WITH :: ALSO
+        # ...
+        text = text.replace("::", "0000:0000")
+        return super().parse(text)
 
 parsers = {
     "4": IpParser4,
