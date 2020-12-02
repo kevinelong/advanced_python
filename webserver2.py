@@ -3,13 +3,7 @@ import sqlite3
 import json
 app = Flask(__name__)
 
-style = """
-<style>
-    body{
-        background: green;
-    }
-</style>
-"""
+style = f'\n<style>\n{ open("webserver2_style.css", "r").read() }\n</style>\n'
 
 @app.route('/')
 def index():
