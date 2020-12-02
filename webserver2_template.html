@@ -1,0 +1,14 @@
+Hello world!
+<script>
+    fetch('/data/')
+        .then(res => res.json())
+        .then((out) => {
+            let text = "";
+            for (let i = 0; i < out.length; i++) {
+                text += "<BR>";
+                let row = out[i];
+                text += row[1];
+            }
+            document.body.innerHTML += text;
+        }).catch(err => console.error(err));
+</script>
