@@ -1,4 +1,4 @@
 import c01
 
-print(myModule.fib(10))
-print(myModule.version())
+print(c01.fib(10))
+print(c01.version())
