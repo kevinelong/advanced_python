@@ -25,3 +25,5 @@ for line in interface_config_list.split("\n"):
         if parts[1] == "access":
             interface["access"] = parts[-1]
 print(results)
+# OUTPUT:
+# [{'name': 'fivegigabitethernet1/0/4', 'access': '5'}, {'name': 'gigabitethernet1/0/5', 'access': '12'}]
