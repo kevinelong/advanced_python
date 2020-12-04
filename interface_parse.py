@@ -14,7 +14,7 @@ interface GigabitEthernet1/0/5
  device-tracking attach-policy IPDT
  authentication control-direction in
 """
-
+# GOAL: Extract just the vlan access port for each interface into a list of dicts.
 results = []
 for line in interface_config_list.split("\n"):
     parts = line.strip().lower().split()
