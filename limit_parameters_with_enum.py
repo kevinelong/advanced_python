@@ -15,7 +15,7 @@ def use_protocol(protocol: Protocol) -> None:
     print(protocol.value)
 
 
-use_protocol(Protocol.HTTP)
+use_protocol(Protocol.HTTPS)
 
 # this will fail
 use_protocol('https')

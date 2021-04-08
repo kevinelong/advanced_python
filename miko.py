@@ -2,10 +2,9 @@ from netmiko import ConnectHandler
 
 linux = {
     'device_type': 'linux',
-    'host':   '54.209.151.112',
+    'host':   '54.224.250.13',
     'username': 'kevin',
     'password': 'S!mpl312',
-    'zzz':123
 }
 c = ConnectHandler(**linux) # use of kwargs optional, could just use regular parameters
 
@@ -35,7 +34,7 @@ for item in lines:
             print("YAY!!!")
             r4 = c.send_command("rm hw.txt")
             print(r4)
-#
+
 # from netmiko import ConnectHandler
 # import paramiko
 # private_key_path = "~/.ssh/clvrclvr.pem"
@@ -47,12 +46,12 @@ for item in lines:
 #     'pkey' : paramiko.RSAKey.from_private_key_file(private_key_path)
 # }
 # c = ConnectHandler(**linux) # use of kwargs optional, could just use regular parameters
-#
+
 # r1 = c.send_command("echo hello world  > hw.txt")
 # print(r1)
-#
+
 # r2 = c.send_command("cat hw.txt")
 # print(r2)
-#
+
 # r3 = c.send_command("ls -la")
-# print(r3)
+# # print(r3)

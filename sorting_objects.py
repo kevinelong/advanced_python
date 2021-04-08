@@ -5,7 +5,7 @@ class customObject():
 
     def __init__(self, title, date):
         self.title = title
-        self.date = datetime.datetime.strptime(date, "%m %d, %y")
+        self.date = datetime.datetime.strptime(date, "%B %d, %Y")
 
 obj3 = customObject("TLS 1.3 - Better, Stronger, Faster", "January 6, 2018")
 obj4 = customObject("User Interface Testing with Swift and XCTest", "December 10, 2017")
@@ -25,9 +25,13 @@ print("Unsorted Date from obj5: " + str(obj5.date) + " with title: " + obj5.titl
 
 customObjects = [obj1, obj2, obj3, obj4, obj5]
 
+def getDate(x):
+    return x.date
+
 # One line sort function method using an inline lambda function lambda x: x.date
 # The value for the key param needs to be a value that identifies the sorting property on the object
 customObjects.sort(key=lambda x: x.date, reverse=True)
+#customObjects.sort(key=getDate, reverse=True)
 
 for obj in customObjects:
     print("Sorted Date from obj: " + str(obj.date) + " with title: " + obj.title)

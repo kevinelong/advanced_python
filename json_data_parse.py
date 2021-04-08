@@ -7,9 +7,12 @@ copy_from_disk = json.load(f) #READ
 
 #use debugger set break point and browse results then copy square bracket path from  from "Evalute Expression"
 
+print(copy_from_disk["data"]["children"][-1]["data"]["title"])
 #dense
-# for index in range(len(copy_from_disk["data"]["children"])):
-#     print(copy_from_disk["data"]["children"][index]["data"]["title"])
+# how_many_children = len(copy_from_disk["data"]["children"])
+# print("how_many_children =", how_many_children)
+# for index in range(0, how_many_children):
+#     print(index, copy_from_disk["data"]["children"][index]["data"]["title"])
 #a few levels at a time with sensible local var names
 
 item_list = copy_from_disk['data']['children']
@@ -18,3 +21,4 @@ for item in item_list:
     d = item["data"]
     if d['upvote_ratio'] > 0.96:
         print(d["title"])
+        print("")

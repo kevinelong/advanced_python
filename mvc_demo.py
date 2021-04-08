@@ -54,10 +54,10 @@ app = Application()
 app.models["user"] = Model("user", ["name", "score"])
 app.models["game"] = Model("game", ["game_name", "description"])
 
-app.models = {
-    "user": Model("user", ["name", "score"]),
-    "game": Model("game", ["game_name", "description"])
-}
+# app.models = {
+#     "user": Model("user", ["name", "score"]),
+#     "game": Model("game", ["game_name", "description"])
+# }
 
 # load model objects form database tables
 app.models["user"].objects = [
@@ -72,10 +72,12 @@ app.models["game"].objects = [
 ]
 
 app.controller.routes = {
-    "/scores/": View("\nHello <em>{{name}}</em>, your score is: <strong>{{score}}</strong>.<br>\n", app.models["user"]),
+    "/scores/": View("\nHello <em>{{name}}</em>, your score is: <strong>{{score}}</strong>.<br>\n",
+     app.models["user"]),
+
     "/game/": View("\nGame: {{game_name}} Desc:{{description}}\n", app.models["game"])
 }
-
+# BEGIN TEST
 request_path = "/scores/"
 write_me = app.controller.route(request_path)
 print(write_me)

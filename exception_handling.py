@@ -6,14 +6,14 @@ try:
 
 except OSError as err:
     print(f"OS error: {err}")
-    raise
+    # raise
 
-except ValueError:
+except ValueError as err:
     print("Could not convert data to an integer.")
 
 except:
     print("Unexpected error:", sys.exc_info()[0])
-    raise
+    # raise
 
 finally:
     print("Cleaning Up")

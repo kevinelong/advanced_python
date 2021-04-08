@@ -6,7 +6,7 @@ data = {
      'c': 300
 }
 
-output = json.dumps(data)  #, indent=4)
+output = json.dumps(data, indent=4)
 
 print(len(output))
 print(output)

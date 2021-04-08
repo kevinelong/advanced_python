@@ -31,6 +31,6 @@ print(is_password_good(fresh_password, stored_hash))
 
 # HOW NOT TO DO IT
 m = hashlib.md5()
-data = "password" # NO SALT
+data = "Welcome1!" # NO SALT
 m.update(data.encode())
 print(m.hexdigest())  # VERY COMMON TO FIND IN RAINBOW TABLES

@@ -3,7 +3,12 @@ import subprocess
 
 def run(exe):
     cmd = exe.split(" ")
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    p = subprocess.Popen(
+        cmd, 
+        stdout=subprocess.PIPE, 
+        stderr=subprocess.STDOUT, 
+        shell=True
+    )
     return iter(p.stdout.readline, b'')
 
 
@@ -14,7 +19,7 @@ FILE_COLUMN = 4
 
 
 def is_valid(line_data):
-    return line_data and line_data[0] != "Directory" and line_data[-1] != "bytes"
+    return line_data and line_data[0] != "Directory" and line_data[0] != "Volume" and line_data[-1] != "bytes"
 
 
 for line in result:

@@ -19,6 +19,7 @@ Hi!
 @app.route('/login/', methods=['POST'])
 def login():
     username = request.form['username']
+
     print(f"RECEIVED: {username}")
     return f'''
     WELCOME {username}!!!
@@ -35,13 +36,13 @@ def login():
     '''
 
 
-@app.route('/secure/*')
-def secure():
-    username = request.form['username']
-    print(f"RECEIVED: {username}")
-    return f'''
-    SECRET STUFF for {username}!!!
-    '''
+# @app.route('/secure/*')
+# def secure():
+#     username = request.form['username']
+#     print(f"RECEIVED: {username}")
+#     return f'''
+#     SECRET STUFF for {username}!!!
+#     '''
 
 
 app.run()

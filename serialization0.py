@@ -1,5 +1,4 @@
 import json
-from json import JSONEncoder
 
 data = {
     1: 111,
@@ -8,7 +7,7 @@ data = {
     4444: 'Now is \"the\" time don\'t ...'
 }
 
-text = json.dumps(data, )
+text = json.dumps(data)
 print(data)
 print(text)
 

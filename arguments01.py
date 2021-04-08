@@ -3,9 +3,8 @@ import sys
 print(sys.argv)
 print(len(sys.argv))
 
-if len(sys.argv) < 3:
-    print("USAGE: script input_file_path "
-          "")
+if len(sys.argv) != 3:
+    print("USAGE: script input_file_path output_file_path")
     exit(-1)
 
 else:
