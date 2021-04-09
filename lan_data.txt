@@ -1,0 +1,3119 @@
+vlan 31
+ name L3-MISC-APC_31
+!
+vlan 193
+ name L3-VOIP-Phone_193
+!
+vlan 199
+ name L3-VOIP-Phone_199
+!
+vlan 236
+ name L3-USER-PC_236
+!
+vlan 249
+ name L3-VOIP-Tandberg
+!
+vlan 543
+ name L3-WLAN-AP_543
+!
+vlan 565
+ name L3-MDIA-Glucomtr_565
+!
+vlan 666
+ name L2-NET-Trunk_Native
+!
+vlan 667
+ name L2-NET-RSPAN
+ remote-span
+!
+vlan 699
+ name L3-NET-Switch_Mgmt
+!
+vlan 999
+ name L2-NET-Parked
+!
+vlan 1211
+ name L3-VOIP-Phone_1211
+!
+vlan 1967
+ name L3-USER-Printer_1967
+!
+vlan 1980
+ name L3-MISC-Telehealth
+!
+vlan 3078
+ name L3-MDIA-Omnicell3078
+!
+vlan 3205
+ name L3-SDIA-Kiosks_3205
+!
+vlan 3207
+ name L3-MDIA-SANIPU_3207
+no lldp tlv-select management-address
+no lldp tlv-select port-description
+no lldp tlv-select system-capabilities
+no lldp tlv-select system-description
+lldp run
+!
+ip ftp source-interface Vlan699
+ip ssh time-out 60
+ip ssh source-interface Vlan699
+ip ssh version 2
+!
+!
+interface Port-channel1
+ description MEC to LYNSC01-B010xxx103-VSS- Po63
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 666
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet1/0/1
+ switchport access vlan 249
+ switchport mode access
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/2
+ description **## Omnicell
+ switchport access vlan 3078
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/3
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/4
+ description **## Omnicell
+ switchport access vlan 3078
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/5
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/6
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/7
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/8
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/9
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/10
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/11
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/12
+ description COMPUTER
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/13
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/14
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/15
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/16
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/17
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/18
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/19
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/20
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/21
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/22
+ description UNUSED PORT SBC
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/23
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/24
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/25
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/26
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/27
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/28
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/29
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/30
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/31
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/32
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/33
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/34
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/35
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/36
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet1/0/37
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/38
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/39
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/40
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/41
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/42
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/43
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/44
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/45
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/46
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/47
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet1/0/48
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface GigabitEthernet1/0/1
+ description MEC to LYNSC01-B010xxx103-VSS-SW1_G1/8/42
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 666
+ switchport mode trunk
+ switchport nonegotiate
+ channel-protocol lacp
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/2
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 193
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/3
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 193
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/4
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 193
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/1
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/2
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/3
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/4
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/5
+ description vet link kiosk
+ switchport access vlan 3205
+ switchport mode access
+ switchport voice vlan 1211
+ no logging event link-status
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/6
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/7
+ description RALS/ROCHE
+ switchport access vlan 565
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/8
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/9
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/10
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/11
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/12
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/13
+ description Work Station Room e202 D8251
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/14
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/15
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/16
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/17
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/18
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/19
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/20
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/21
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/22
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/23
+ description RALS/ROCHE
+ switchport access vlan 565
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/24
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/25
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/26
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/27
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/28
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/29
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/30
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/31
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/32
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/33
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/34
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/35
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/36
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/37
+ switchport access vlan 1967
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/38
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/39
+ description Sanipur_Sanikill
+ switchport access vlan 3207
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/40
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/41
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/42
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/43
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/44
+ switchport access vlan 236
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/45
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/46
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/47
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet2/0/48
+ description EATON_UPS
+ switchport access vlan 31
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface GigabitEthernet2/0/1
+ description MEC to LYNSC01-B010xxx103-VSS-SW1_G1/8/42
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 666
+ switchport mode trunk
+ switchport nonegotiate
+ channel-protocol lacp
+ channel-group 1 mode active
+!
+interface GigabitEthernet2/0/2
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 193
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface GigabitEthernet2/0/3
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 193
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface GigabitEthernet2/0/4
+ description UNUSED PORT SBC
+ switchport access vlan 999
+ switchport mode access
+ switchport voice vlan 193
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet3/0/1
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/2
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/3
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/4
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/5
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+!
+interface FastEthernet3/0/6
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/7
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/8
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/9
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/10
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/11
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/12
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/13
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/14
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/15
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/16
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/17
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/18
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/19
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/20
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/21
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/22
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/23
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface FastEthernet3/0/24
+ description WiFI
+ switchport access vlan 543
+ switchport mode access
+ switchport voice vlan 1211
+ authentication control-direction in
+ authentication event server dead action authorize vlan 999
+ authentication event server dead action authorize voice
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ authentication timer inactivity server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ dot1x pae authenticator
+ dot1x timeout tx-period 10
+ spanning-tree portfast
+ spanning-tree bpduguard disable
+!
+interface GigabitEthernet3/0/1
+ switchport voice vlan 193
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ spanning-tree portfast
+!
+interface GigabitEthernet3/0/2
+ switchport voice vlan 193
+ snmp trap mac-notification change added
+ snmp trap mac-notification change removed
+ spanning-tree portfast
+! 
+ 
+ 
+ 
+ 

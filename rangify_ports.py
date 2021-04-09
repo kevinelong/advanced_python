@@ -12,6 +12,7 @@ def rangify_ports(switch_ports):
         if both not in data:
             data[both] = []
         data[both].append(int(port))
+    print(data)
 
     for key in data:
         ports = data[key]
@@ -34,11 +35,11 @@ def rangify_ports(switch_ports):
             output.append(f"{sequence[0]}-{sequence[-1]}")
         elif len(sequence) > 0:
             output.append(f"{sequence[0]}")
-        data[key] = output
+        data[key] = output #replace port series with the range
     with_ranges = []
-    for d in data:
-        for ports in data[d]:
-            with_ranges.append(f"{d}/{ports}")
+    for both in data:
+        for ports in data[both]:
+            with_ranges.append(f"{both}/{ports}")
     return with_ranges
 
 if __name__ == "__main__":
@@ -47,3 +48,4 @@ if __name__ == "__main__":
 
     result = rangify_ports(switch_ports)
     print(result)
+    #EXPECTED OUTPUT: ['1/0/10-12', '1/0/20-21', '1/0/38', '1/0/48', '2/0/8-10']
